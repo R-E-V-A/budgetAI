@@ -15,5 +15,6 @@ class Routes
   static const String OnboardingPage3 = "OnboardingThree";
   static const String OnboardingPage4 = "/OnboardingFour";
   static const String aboutPage = "/aboutPage";
-  static const String analyticsPage = "analyticsPage";
+  static const String analyticsPage = "/analyticsPage";
+  static const String budgetScorePage = "/BudgetScorePage";
 }

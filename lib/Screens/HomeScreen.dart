@@ -173,15 +173,23 @@ class _HomePageState extends State<HomePage> {
                 currIndex=val;
                 if(val==0)
                 {
-                  Navigator.pushNamed(context, Routes.HomePage);
+                  Navigator.of(context)
+                      .pushNamedAndRemoveUntil('/HomePage', (Route<dynamic> route) => false);
                 }
                 else if(val==1)
                 {
-                  Navigator.pushNamed(context, Routes.analyticsPage);
+                  Navigator.of(context)
+                      .pushNamedAndRemoveUntil('/analyticsPage', (Route<dynamic> route) => false);
                 }
+                else if(val==2)
+                  {
+                    Navigator.of(context)
+                        .pushNamedAndRemoveUntil('/BudgetScorePage', (Route<dynamic> route) => false);
+                  }
                 else if(val==4)
                 {
-                  Navigator.pushNamed(context, Routes.MyProfilePage);
+                  Navigator.of(context)
+                      .pushNamedAndRemoveUntil('/MyProfilePage', (Route<dynamic> route) => false);
                 }
               }
           });

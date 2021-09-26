@@ -7,6 +7,7 @@ import 'package:resolvers/Screens/MyProfile/MyProfileScreen.dart';
 import 'package:resolvers/Screens/Onboarding/Onboarding2.dart';
 import 'package:resolvers/Screens/Onboarding/Onboarding3.dart';
 import 'package:resolvers/Screens/Onboarding/Onboarding4.dart';
+import 'package:resolvers/Screens/WandPages/BudgetScore.dart';
 import 'Routes.dart';
 import 'Screens/AuthScreens/SignUpScreen.dart';
 import 'Screens/Onboarding/Onboarding1.dart';
@@ -57,4 +58,5 @@ var routes = <String,WidgetBuilder>{
   Routes.OnboardingPage4: (BuildContext context)=>OnboardingFour(),
   Routes.aboutPage: (BuildContext context)=>AboutPage(),
   Routes.analyticsPage:(BuildContext context)=>AnalyticsPage(),
+  Routes.budgetScorePage:(BuildContext context)=>BudgetScore(),
 };

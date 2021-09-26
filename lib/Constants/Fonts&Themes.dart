@@ -10,7 +10,8 @@ int currIndex=0;
 TextStyle paraText = GoogleFonts.poppins(color: Colors.white);
 String profileUsername;
 String profilepic;
-String dummy = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Semper at ultrices volutpat hendrerit platea eget eu amet. Sed magna blandit ultrices amet, in aliquam quam ut in. Quisque erat vulputate mus egestas purus sit nec. Nulla ornare dui, consectetur augue. Felis nunc dignissim tempus nunc faucibus id proin libero. Placerat diam egestas tincidunt sed. Id nulla libero nisi, eget sit duis. A ut laoreet suspendisse odio. Convallis sem nulla tellus nulla tellus, mauris. Enim facilisis sapien mollis sit convallis consectetur pellentesque nec. Sed quam dui sed adipiscing in rhoncus. Mauris libero vestibulum nullam aenean sit viverra sagittis. Viverra facilisis vulputate sit id volutpat, malesuada diam.";
+String dummy2= "We navigates through monthly revenue , expenses, investments and savings, to calculate a cumulative score on each parameter.";
+String dummy = "Budget.ai Score is the exclusive feature of our app, that is a measure of your current status towards achieving your financial goals and living a budget optimised life. ";
 int changePage(int val)
 {
   return val;

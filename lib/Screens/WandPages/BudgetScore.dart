@@ -76,12 +76,22 @@ class _BudgetScoreState extends State<BudgetScore> {
                     ),
                   ),
                   SizedBox(height: 0.08 * height,),
-                  Text("How it Works", style: paraText.copyWith(
+                  Text("What is Budget.ai Score?", style: paraText.copyWith(
                       fontWeight: FontWeight.w500,
                       fontSize: 20,
                       color: Colors.black),),
                   SizedBox(height: 0.01 * height,),
                   Text(dummy, style: paraText.copyWith(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
+                      color: Colors.black),),
+                  SizedBox(height: 0.04 * height,),
+                  Text("How does it work?", style: paraText.copyWith(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20,
+                      color: Colors.black),),
+                  SizedBox(height: 0.01 * height,),
+                  Text(dummy2, style: paraText.copyWith(
                       fontWeight: FontWeight.w500,
                       fontSize: 14,
                       color: Colors.black),),

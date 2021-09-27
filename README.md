@@ -1,16 +1,17 @@
-# managedebt
+# BudgetAI
 
-A new Flutter project.
+Tackling Student Loans one at a time
 
-## Getting Started
+## What it does
 
-This project is a starting point for a Flutter application.
+Budget.ai is a mobile application that helps you manage your finances in a better way.
 
-A few resources to get you started if this is your first Flutter project:
+It has features like Expenses Diary, Expense Forecast, Visualizing your past Expenses, getting Budget.ai Credit Score, etc.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Our Expense Diary feature helps you to record all your daily expenses into major categories which can be visualized over time and can help in forecasting your future expenses.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Expense Forecasting feature helps you in getting estimates of your future expenses so that you can put cut-offs on unnecessary expenses. This helps you save better, and invest in the right kind of assets.
+
+The analytics feature of Budget.ai is there to give you graphical visualization of your expenses over time, comparing insights like Net Worth Over Time, Total Monthly Expenses, and Expenses Breakdown. Visualizations are easy to comprehend on a frequent basis.
+
+We have introduced an exclusive Score feature, similar to a credit or CIBIL Score. ‘Budget.ai Score’ is a measure of your current status towards achieving your financial goals and living a budget-optimized life. It works on the parameters like monthly revenue, expenses, investments, and savings, to calculate a cumulative score on each parameter.

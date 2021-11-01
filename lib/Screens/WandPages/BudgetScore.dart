@@ -101,64 +101,39 @@ class _BudgetScoreState extends State<BudgetScore> {
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          iconSize: 30,
+          iconSize: 40,
           unselectedItemColor: Colors.grey,
-          selectedItemColor: Color(0xff7165e3),
+          selectedItemColor: Colors.black,
           backgroundColor: Colors.white,
           currentIndex: currIndex,
           elevation: 20,
           onTap: (val) {
             setState(() {
-              if(val!=currIndex)
-              {
-                currIndex=val;
-                if(val==0)
-                {
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil('/HomePage', (Route<dynamic> route) => false);
-                }
-                else if(val==1)
-                {
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil('/analyticsPage', (Route<dynamic> route) => false);
-                }
-                else if(val==2)
-                {
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil('/BudgetScorePage', (Route<dynamic> route) => false);
-                }
-                else if(val==4)
-                {
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil('/MyProfilePage', (Route<dynamic> route) => false);
+              if (val != currIndex) {
+                currIndex = val;
+                if (val == 0) {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/HomePage', (Route<dynamic> route) => false);
+                } else if (val == 1) {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/BudgetScorePage', (Route<dynamic> route) => false);
+                } else if (val == 2) {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/MyProfilePage', (Route<dynamic> route) => false);
                 }
               }
             });
           },
+          selectedIconTheme: IconThemeData(color: Colors.black),
           items: [
             BottomNavigationBarItem(
-                label: " ",
-                icon: Icon(Icons.account_balance_wallet_outlined)),
+              label: "Home",
+              icon: Icon(Icons.home),
+            ),
             BottomNavigationBarItem(
-                label: " ",
-                icon: Icon(Icons.bar_chart)),
-            BottomNavigationBarItem(
-                label: " ",
-                icon: Stack(
-                  children: [
-                    Image.asset("assets/purplenavy.png", height: 50,),
-                    Positioned(
-                        top: 13,
-                        left: 13,
-                        child: Image.asset("assets/wand.png", height: 25,))
-                  ],
-                )),
-            BottomNavigationBarItem(
-                label: " ",
-                icon: Icon(Icons.sticky_note_2_rounded)),
-            BottomNavigationBarItem(
-                label: " ",
-                icon: Icon(Icons.person)),
+                label: "Fin AI",
+                icon: Icon(Icons.mic)),
+            BottomNavigationBarItem(label: "Profile", icon: Icon(Icons.person)),
           ],
         )
     );

@@ -95,149 +95,169 @@ class GetServices {
      print(response.statusCode.toString());*//*
    }
  }*/
- getProfilePic()async
- {
-   String token = await getToken(key:"token1");
-   var headers = {
-     "Authorization":"Token $token"
-   };
-   Uri uri = Uri.parse("https://ashish226.pythonanywhere.com/api/profile-pic/");
-   var request = await http.get(uri,headers: headers);
-   if(request.statusCode==200)
-     {
-       var jsonData = jsonDecode(request.body);
-       await savePic(saveKey: "profilepic",saveValue: jsonData["image_url"]);
-     }
+  getProfilePic()async
+  {
+    String token = await getToken(key:"token1");
+    var headers = {
+      "Authorization":"Token $token"
+    };
+    Uri uri = Uri.parse("https://ashish226.pythonanywhere.com/api/profile-pic/");
+    var request = await http.get(uri,headers: headers);
+    if(request.statusCode==200)
+    {
+      var jsonData = jsonDecode(request.body);
+      await savePic(saveKey: "profilepic",saveValue: jsonData["image_url"]);
+    }
 
- }
- Future<UserProfile> getUserProfile()async
- {
-   String token = await getToken(key:"token1");
-   var headers = {
-     "Authorization":"Bearer $token"
-   };
-   Uri uri = Uri.parse("https://shelldbapi.azurewebsites.net/api/userdetails");
-   var request = await http.get(uri,headers: headers);
-   if(request.statusCode==200)
-   {
-        print(request.body);
-        var jsonData = jsonDecode(request.body);
-        return UserProfile.fromJson(jsonData);
-   }
-   else
-     {
-       Fluttertoast.showToast(msg: "Sorry, User Profile is not available");
-     }
-   return null;
- }
- Future<List<TransactionDetails>>getAllTransactionDetails()async
- {
-   String token = await getToken(key:"token1");
-   var headers = {
-     "Authorization":"Bearer $token"
-   };
-   Uri uri = Uri.parse("https://shelldbapi.azurewebsites.net/api/transaction");
-   var request = await http.get(uri,headers: headers);
-   var jsonData;
-   if(request.statusCode==200)
-     {
-       jsonData = jsonDecode(request.body);
-     }
-   else
-     {
-       Fluttertoast.showToast(msg: "Sorry, An Error occured while fetching data");
-       return null;
-     }
-   return (jsonData as List)
-       .map((jsonData) => TransactionDetails.fromJson(jsonData))
-       .toList();
- }
- getDailyForecast()async
- {
-   String token = await getToken(key:"token1");
-   var headers = {
-     "Authorization":"Bearer $token"
-   };
-   Uri uri = Uri.parse("https://shelldbapi.azurewebsites.net/api/forecast");
-   var request = await http.get(uri,headers: headers);
-   var jsonData;
-   if(request.statusCode==200)
-   {
-     jsonData = jsonDecode(request.body);
-   }
-   else
-   {
-     Fluttertoast.showToast(msg: "Sorry, An Error occured while fetching data");
-     return null;
-   }
-   return (jsonData as List)
-       .map((jsonData) => TransactionDetails.fromJson(jsonData))
-       .toList();
- }
- Future<List<MonthlyExpense>>getMonthlyExpense()async
- {
-   String token = await getToken(key:"token1");
-   var headers = {
-     "Authorization":"Bearer $token"
-   };
-   Uri uri = Uri.parse("https://shelldbapi.azurewebsites.net/api/analytics/monthly_break");
-   var request = await http.get(uri,headers: headers);
-   var jsonData;
-   if(request.statusCode==200)
-   {
-     jsonData = jsonDecode(request.body);
-   }
-   else
-   {
-     Fluttertoast.showToast(msg: "Sorry, An Error occured while fetching data");
-     return null;
-   }
-   return (jsonData as List)
-       .map((jsonData) => MonthlyExpense.fromJson(jsonData))
-       .toList();
- }
- Future<List<ExpenseBreakdown>>getBreakdown()async
- {
-   String token = await getToken(key:"token1");
-   var headers = {
-     "Authorization":"Bearer $token"
-   };
-   Uri uri = Uri.parse("https://shelldbapi.azurewebsites.net/api/analytics/expense_break");
-   var request = await http.get(uri,headers: headers);
-   var jsonData;
-   if(request.statusCode==200)
-   {
-     jsonData = jsonDecode(request.body);
-   }
-   else
-   {
-     Fluttertoast.showToast(msg: "Sorry, An Error occured while fetching data");
-     return null;
-   }
-   return (jsonData as List)
-       .map((jsonData) => ExpenseBreakdown.fromJson(jsonData))
-       .toList();
- }
- Future<List<NetWorth>>getNetWorth()async
- {
-   String token = await getToken(key:"token1");
-   var headers = {
-     "Authorization":"Bearer $token"
-   };
-   Uri uri = Uri.parse("https://shelldbapi.azurewebsites.net/api/analytics/net_worth");
-   var request = await http.get(uri,headers: headers);
-   var jsonData;
-   if(request.statusCode==200)
-   {
-     jsonData = jsonDecode(request.body);
-   }
-   else
-   {
-     Fluttertoast.showToast(msg: "Sorry, An Error occured while fetching data");
-     return null;
-   }
-   return (jsonData as List)
-       .map((jsonData) => NetWorth.fromJson(jsonData))
-       .toList();
- }
+  }
+  Future<UserProfile> getUserProfile()async
+  {
+    String token = await getToken(key:"token1");
+    var headers = {
+      "Authorization":"Bearer $token"
+    };
+    Uri uri = Uri.parse("https://api-balanced-epic.azurewebsites.net/api/userdetails");
+    var request = await http.get(uri,headers: headers);
+    if(request.statusCode==200)
+    {
+      print(request.body);
+      var jsonData = jsonDecode(request.body);
+      return UserProfile.fromJson(jsonData);
+    }
+    else
+    {
+      Fluttertoast.showToast(msg: "Sorry, User Profile is not available");
+    }
+    return null;
+  }
+  Future<dynamic> getUserGoals()async
+  {
+    String token = await getToken(key:"token1");
+    var headers = {
+      "Authorization":"Bearer $token"
+    };
+    Uri uri = Uri.parse("https://api-balanced-epic.azurewebsites.net/api/goal");
+    var request = await http.get(uri,headers: headers);
+    if(request.statusCode==200)
+    {
+      print(request.body);
+      var jsonData = jsonDecode(request.body);
+      return UserProfile.fromJson(jsonData);
+    }
+    else
+    {
+      Fluttertoast.showToast(msg: "Sorry, User Profile is not available");
+    }
+    return null;
+  }
+  Future<List<TransactionDetails>>getAllTransactionDetails()async
+  {
+    String token = await getToken(key:"token1");
+    var headers = {
+      "Authorization":"Bearer $token"
+    };
+    Uri uri = Uri.parse("https://api-balanced-epic.azurewebsites.net/api/transaction");
+    var request = await http.get(uri,headers: headers);
+    var jsonData;
+    if(request.statusCode==200)
+    {
+      jsonData = jsonDecode(request.body);
+    }
+    else
+    {
+      Fluttertoast.showToast(msg: "Sorry, An Error occured while fetching data");
+      return null;
+    }
+    return (jsonData as List)
+        .map((jsonData) => TransactionDetails.fromJson(jsonData))
+        .toList();
+  }
+  getDailyForecast()async
+  {
+    String token = await getToken(key:"token1");
+    var headers = {
+      "Authorization":"Bearer $token"
+    };
+    Uri uri = Uri.parse("https://api-balanced-epic.azurewebsites.net/api/forecast");
+    var request = await http.get(uri,headers: headers);
+    var jsonData;
+    if(request.statusCode==200)
+    {
+      jsonData = jsonDecode(request.body);
+    }
+    else
+    {
+      Fluttertoast.showToast(msg: "Sorry, An Error occured while fetching data");
+      return null;
+    }
+    return (jsonData as List)
+        .map((jsonData) => TransactionDetails.fromJson(jsonData))
+        .toList();
+  }
+  Future<List<MonthlyExpense>>getMonthlyExpense()async
+  {
+    String token = await getToken(key:"token1");
+    var headers = {
+      "Authorization":"Bearer $token"
+    };
+    Uri uri = Uri.parse("https://api-balanced-epic.azurewebsites.net/api/analytics/monthly_break");
+    var request = await http.get(uri,headers: headers);
+    var jsonData;
+    if(request.statusCode==200)
+    {
+      jsonData = jsonDecode(request.body);
+    }
+    else
+    {
+      Fluttertoast.showToast(msg: "Sorry, An Error occured while fetching data");
+      return null;
+    }
+    return (jsonData as List)
+        .map((jsonData) => MonthlyExpense.fromJson(jsonData))
+        .toList();
+  }
+  Future<List<ExpenseBreakdown>>getBreakdown()async
+  {
+    String token = await getToken(key:"token1");
+    var headers = {
+      "Authorization":"Bearer $token"
+    };
+    Uri uri = Uri.parse("https://api-balanced-epic.azurewebsites.net/api/analytics/expense_break");
+    var request = await http.get(uri,headers: headers);
+    var jsonData;
+    if(request.statusCode==200)
+    {
+      jsonData = jsonDecode(request.body);
+    }
+    else
+    {
+      Fluttertoast.showToast(msg: "Sorry, An Error occured while fetching data");
+      return null;
+    }
+    return (jsonData as List)
+        .map((jsonData) => ExpenseBreakdown.fromJson(jsonData))
+        .toList();
+  }
+  Future<List<NetWorth>>getNetWorth()async
+  {
+    String token = await getToken(key:"token1");
+    var headers = {
+      "Authorization":"Bearer $token"
+    };
+    Uri uri = Uri.parse("https://api-balanced-epic.azurewebsites.net/api/analytics/net_worth");
+    var request = await http.get(uri,headers: headers);
+    var jsonData;
+    if(request.statusCode==200)
+    {
+      jsonData = jsonDecode(request.body);
+    }
+    else
+    {
+      Fluttertoast.showToast(msg: "Sorry, An Error occured while fetching data");
+      return null;
+    }
+    return (jsonData as List)
+        .map((jsonData) => NetWorth.fromJson(jsonData))
+        .toList();
+  }
 }

@@ -196,7 +196,7 @@ class _AddRecordState extends State<AddRecord> {
                       onTap: ()async{
                         Fluttertoast.showToast(msg: "Hang On");
                         int amt = int.parse(amount.text);
-                       await postServices.addTransaction(date.text, amt, category.text, " ", "Income");
+                       await postServices.addTransaction(date.text, amt, category.text, title.text, "Income");
                         Navigator.pushNamed(context, Routes.HomePage);
                       },
                       child:Container(
@@ -337,7 +337,7 @@ class _AddRecordState extends State<AddRecord> {
                      onTap: ()async{
                        Fluttertoast.showToast(msg: "Hang On");
                        int amt = int.parse(amount.text);
-                       await postServices.addTransaction(date.text, amt, category.text, " ", "Expense");
+                       await postServices.addTransaction(date.text, amt, category.text, title.text, "Expense");
                        Navigator.pushNamed(context, Routes.HomePage);
                      },
                      child:Container(

@@ -17,92 +17,62 @@ class _OnboardingFourState extends State<OnboardingFour> {
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [
-                  Color(0xffa25deb),
-                  Color(0xff6f2dd9)
-                ],
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft
-            )
-        ),
+        color: Colors.white,
         child: Padding(
-          padding: EdgeInsets.only(top: height*0.05,left: 0.05*width,right: 0.05*width),
-          child: Column(
-            children: [
-              Image.asset("assets/BudgetAI_Logo.png",height: height*0.08,width: width*0.3,),
-              SizedBox(
-                height: 0.02*height,
-              ),
-              Image.asset("assets/ob2.png",height: height*0.28,width: width*0.7,color:Colors.transparent,colorBlendMode: BlendMode.color,),
-              SizedBox(
-                height: 0.02*height,
-              ),
-              Text("Enjoy your financial freedom  🎉",style: paraText.copyWith(fontWeight: FontWeight.w600,fontSize: 30),textAlign: TextAlign.center,),
-              SizedBox(
-                height: 0.06*height,
-              ),
-              Text("Achieve your financial goal, live the life you dream about. Start Saving Today!",style: paraText.copyWith(fontWeight: FontWeight.w500,fontSize: 18,color: Color(0xffd9b6ff)),textAlign: TextAlign.center,),
-              SizedBox(
-                height: 0.02*height,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.circle,color: Colors.white,size: 10,),
-                  SizedBox(width: 0.02*width,),
-                  Icon(Icons.circle,color: Colors.white,size: 10,),
-                  SizedBox(width: 0.02*width,),
-                  Icon(Icons.circle,color: Color(0xff39d074),size: 10,)
-                ],
-              ),
-              SizedBox(
-                height: 0.15*height,
-              ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(5.0),
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.of(context)
-                        .pushNamedAndRemoveUntil('/SignUpPage', (Route<dynamic> route) => false);
-                  },
-                  child: Container(
-                    height: 0.08*height,
-                    width: 0.75*width,
-                    margin: const EdgeInsets.only(bottom: 6.0), //Same as `blurRadius` i guess
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.0),
-                      gradient: LinearGradient(
-                          colors: [
-                            Color(0xff68e89a),
-                            Color(0xff39d074)
-                          ],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight
+          padding: EdgeInsets.only(top: height*0.05,left: 0.03*width,right: 0.03*width),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 0.02*height,
+                ),
+                Image.asset("assets/image 5.png",height: height*0.48,width: width*0.7,color: Colors.transparent,colorBlendMode: BlendMode.multiply,),
+                SizedBox(
+                  height: 0.02*height,
+                ),
+                Text("Get your graduate with extraordinary skills",style: paraText.copyWith(fontWeight: FontWeight.w600,fontSize: 30,color: Color(0xff0d0f44)),textAlign: TextAlign.center,),
+                SizedBox(
+                  height: 0.02*height,
+                ),
+                Text("Got your certificate after finished your online class",style: paraText.copyWith(fontWeight: FontWeight.w500,fontSize: 18,color: Color(0xff727587)),textAlign: TextAlign.center,),
+                SizedBox(
+                  height: 0.02*height,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.circle,color: Colors.grey,size: 10,),
+                    SizedBox(width: 0.02*width,),
+                    Icon(Icons.circle,color: Colors.grey,size: 10,),
+                    SizedBox(width: 0.02*width,),
+                    Icon(Icons.circle,color:Color(0xffa25deb),size: 10,),
+                  ],
+                ),
+                SizedBox(
+                  height: 0.02*height,
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(5.0),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.pushNamed(context, Routes.SignUpPage);
+                      // Navigator.pushNamed(context, Routes.OnboardingPage2);
+                      // Navigator.of(context).push(createRoute(OnboardingThree()));
+                    },
+                    child: Container(
+                      height: 0.08*height,
+                      width: 0.75*width,
+                      margin: const EdgeInsets.only(bottom: 6.0), //Same as `blurRadius` i guess
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15.0),
+                        color: Color(0xffa25deb),
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0xff6f2dd9),
-                          offset: Offset(0.0, 1.0), //(x,y)
-                          blurRadius: 6.0,
-                        ),
-                      ],
+                      child: Center(child: Text("Continue",style: paraText.copyWith(fontSize: 20,fontWeight: FontWeight.w500),)),
                     ),
-                    child: Center(child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Start Saving Now ",style: paraText.copyWith(fontSize: 20,fontWeight: FontWeight.w500),),
-                        SizedBox(
-                          width: 0.02*width,
-                        ),
-                        Icon(Icons.arrow_right_alt,color: Colors.white,size: 30,)
-                      ],
-                    )),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

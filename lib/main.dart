@@ -12,51 +12,29 @@ import 'Routes.dart';
 import 'Screens/AuthScreens/SignUpScreen.dart';
 import 'Screens/Onboarding/Onboarding1.dart';
 import 'Services/SharedPreferences.dart';
-void main() async{
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+  var token = await getToken(key: "token1");
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: token == null ? OnboardingOne() : HomePage(),
+    /*SignUpPage(title: 'Flutter Demo Home Page'),*/
+    routes: routes,
+    initialRoute: token == null ? "/OnboardingOne" : "/HomePage",
+  ));
 }
 
-class MyApp extends StatefulWidget {
-  // This widget is the root of your application.
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  String token="empty";
-  getTok()async
-  {
-    token = await getToken(key:"token1");
-  }
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getTok();
-  }
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: token=="empty"?OnboardingOne():HomePage(),/*SignUpPage(title: 'Flutter Demo Home Page'),*/
-      routes: routes,
-      initialRoute: token=="empty"?"/OnboardingOne":"/HomePage",
-    );
-  }
-}
-
-var routes = <String,WidgetBuilder>{
-   Routes.SignUpPage :(BuildContext context) => SignUpPage(),
-  Routes.LogInPage :(BuildContext context) => LoginPage(),
-  Routes.MyProfilePage: (BuildContext context)=>MyProfile(),
-  Routes.HomePage: (BuildContext context)=>HomePage(),
-  Routes.OnboardingPag1: (BuildContext context)=>OnboardingOne(),
-  Routes.OnboardingPage2: (BuildContext context)=>OnboardingTwo(),
-  Routes.OnboardingPage3: (BuildContext context)=>OnBoardingThree(),
-  Routes.OnboardingPage4: (BuildContext context)=>OnboardingFour(),
-  Routes.aboutPage: (BuildContext context)=>AboutPage(),
-  Routes.analyticsPage:(BuildContext context)=>AnalyticsPage(),
-  Routes.budgetScorePage:(BuildContext context)=>BudgetScore(),
+var routes = <String, WidgetBuilder>{
+  Routes.SignUpPage: (BuildContext context) => SignUpPage(),
+  Routes.LogInPage: (BuildContext context) => LoginPage(),
+  Routes.MyProfilePage: (BuildContext context) => MyProfile(),
+  Routes.HomePage: (BuildContext context) => HomePage(),
+  Routes.OnboardingPag1: (BuildContext context) => OnboardingOne(),
+  Routes.OnboardingPage2: (BuildContext context) => OnboardingTwo(),
+  Routes.OnboardingPage3: (BuildContext context) => OnBoardingThree(),
+  Routes.OnboardingPage4: (BuildContext context) => OnboardingFour(),
+  Routes.aboutPage: (BuildContext context) => AboutPage(),
+  Routes.analyticsPage: (BuildContext context) => AnalyticsPage(),
+  Routes.budgetScorePage: (BuildContext context) => BudgetScore(),
 };
